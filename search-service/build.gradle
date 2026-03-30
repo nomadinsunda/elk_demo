@@ -1,0 +1,39 @@
+description = 'search-service'
+
+bootJar {
+    enabled = true
+    archiveFileName = 'search-service.jar'
+}
+
+jar {
+    enabled = false // 실행 가능한 jar만 만들 경우 일반 jar는 끕니다.
+}
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Spring Data Elasticsearch (ELK 연동)
+    implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+
+    // 필요 시 게시판 모듈의 엔티티나 DTO를 참조하기 위한 설정
+    // implementation project(':board-service')
+}
+
+
+jib {
+    from {
+        image = 'eclipse-temurin:17-jre' // 도커 베이스 이미지
+    }
+    to {
+        image = 'intheeast0305/search-service' // 이미지 이름
+        tags = ['latest', project.version.toString()]
+    }
+    container {
+        mainClass = 'com.intheeast.searchservice.SearchServiceApplication' // main 클래스 Full Path 확인 필요!
+        ports = ['8080'] // 컨테이너 개방 포트
+        jvmFlags = ['-Xms512m', '-Xmx512m', '-Dfile.encoding=UTF-8']
+        creationTime = 'USE_CURRENT_TIMESTAMP' // 빌드 시간을 현재로 설정
+    }
+}
+

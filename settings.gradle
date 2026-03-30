@@ -1,0 +1,4 @@
+rootProject.name = 'elk_demo'
+
+include 'board-service'
+include 'search-service'

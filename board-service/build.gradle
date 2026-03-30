@@ -1,0 +1,37 @@
+description = 'board-service'
+
+bootJar {
+    enabled = true
+    archiveFileName = 'board-service.jar'
+}
+
+jar {
+    enabled = false // 실행 가능한 jar만 만들 경우 일반 jar는 끕니다.
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // PostgreSQL
+    runtimeOnly 'org.postgresql:postgresql'
+
+    // Validation & 기타
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+}
+
+jib {
+    from {
+        image = 'eclipse-temurin:17-jre' // 도커 베이스 이미지
+    }
+    to {
+        image = 'intheeast0305/board-service' // 이미지 이름
+        tags = ['latest', project.version.toString()]
+    }
+    container {
+        mainClass = 'com.intheeast.boardservice.BoardServiceApplication' // main 클래스 Full Path 확인 필요!
+        ports = ['8080'] // 컨테이너 개방 포트
+        jvmFlags = ['-Xms512m', '-Xmx512m', '-Dfile.encoding=UTF-8']
+        creationTime = 'USE_CURRENT_TIMESTAMP' // 빌드 시간을 현재로 설정
+    }
+}
