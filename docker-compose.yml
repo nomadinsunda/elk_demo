@@ -74,7 +74,7 @@ services:
     networks:
       - board-network
 
-  # --- 원본 DB (CDC 설정 추가) ---
+  # --- 원본 DB (CDC:Change Data Capture 설정 추가) ---
   postgres-db:
     image: postgres:15-alpine
     container_name: board-postgres
