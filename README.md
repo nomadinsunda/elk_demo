@@ -1,3 +1,11 @@
+# 구조
+<img src="../images/arch1.png" style="width: 500px; height: auto;" alt="설명">
+
+
+<img src="../images/arch2.png" style="width: 500px; height: auto;" alt="설명">
+
+
+
 ## PostgreSQL용 데비지움(Debezium) 커넥터 등록 커맨드 라인
 터미널(Git Bash)에 아래 커맨드 라인를 복사해서 붙여넣고 **딱 한번**  실행시켜야 합니다. <br>
 docker-compose.yml 설정(ID: dev_user, DB: board_db)에 딱 맞춰 수정
