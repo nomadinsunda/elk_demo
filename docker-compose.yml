@@ -117,8 +117,12 @@ services:
     container_name: search-service
     ports:
       - "8089:8089"
+    depends_on:
+      - elasticsearch # 엘라스틱서치가 실행된 뒤에 실행되도록 추가
     environment:
       - SPRING_PROFILES_ACTIVE=dev
+      # 아래 설정을 추가하여 YAML 설정을 강제로 덮어씌웁니다.
+      - SPRING_ELASTICSEARCH_URIS=http://elasticsearch:9200
     networks:
       - board-network
     restart: always
