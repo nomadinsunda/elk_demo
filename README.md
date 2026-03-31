@@ -41,4 +41,3 @@ localhost:8083/connectors/ -d '{
 2.  **데이터 발생:** `board-service`를 통해 게시글을 하나 작성하거나, DB에 직접 `INSERT` 쿼리를 날리세요. (중요: 변화가 있어야 로그가 생깁니다!)
 3.  **키바나 재접속:** `localhost:5601`의 `Index Management` 화면에서 **`Reload indices`** 버튼을 눌러보세요.
 
-**이제 `cdc.public.posts`와 같은 이름의 인덱스가 짠! 하고 나타날 겁니다.
