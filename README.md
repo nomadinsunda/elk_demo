@@ -41,11 +41,3 @@ localhost:8083/connectors/ -d '{
 2.  **커넥터 상태 확인:**
     `curl localhost:8083/connectors/board-connector/status` -> `"state": "RUNNING"` 인지 확인하세요.
 
----
-
-### 🚀 다음 액션 플랜
-
-1.  위의 **`curl` 명령어를 실행**하여 커넥터를 등록합니다.
-2.  **데이터 발생:** `board-service`를 통해 게시글을 하나 작성하거나, DB에 직접 `INSERT` 쿼리를 날리세요. (중요: 변화가 있어야 로그가 생깁니다!)
-3.  **키바나 재접속:** `localhost:5601`의 `Index Management` 화면에서 **`Reload indices`** 버튼을 눌러보세요.
-
