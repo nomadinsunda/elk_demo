@@ -2,7 +2,7 @@
 <img src="/images/arch1.png" style="width: 500px; height: auto;" alt="설명">
 
 
-<img src="../images/arch2.png" style="width: 500px; height: auto;" alt="설명">
+<img src="/images/arch2.png" style="width: 500px; height: auto;" alt="설명">
 
 
 
